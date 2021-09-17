@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.views import generic
 import logging
 from django.urls import reverse_lazy 
-from .forms import InquiryForm
+from .models import Blog_ohno 
+# from .forms import InquiryForm
 
 logger = logging.getLogger(__name__)
 
@@ -15,60 +16,60 @@ def index(request):
 class IndexView(generic.TemplateView):
     template_name = "blog_ohno/index.html"
 
-class InquiryView(generic.FormView):
-    template_name = "blog_ohno/inquiry.html"
-    form_class = InquiryForm
-    success_url = reverse_lazy('blog_ohno:inquiry')
+# class InquiryView(generic.FormView):
+#     template_name = "blog_ohno/inquiry.html"
+#     form_class = InquiryForm
+#     success_url = reverse_lazy('blog_ohno:inquiry')
 
 
-    def form_valid(self, form):
-        form.send_email()
-        messages.success(self.request, 'メッセージを送信しました。')
-        logger.info('Inquiry sent by {}'.format(form.cleaned_data['name']))
-        return super().form_valid(form)
+#     def form_valid(self, form):
+#         form.send_email()
+#         messages.success(self.request, 'メッセージを送信しました。')
+#         logger.info('Inquiry sent by {}'.format(form.cleaned_data['name']))
+#         return super().form_valid(form)
 
 
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Diary 
+
 
 class Blog_ohnoListView(LoginRequiredMixin, generic.ListView):
-    model = Diary 
+    model = Blog_ohno
     template_name = 'blog_ohno_list.html'
 
     def get_queryset(self):
-        diaries = Diary.objects.filter(user=self.request.user).order_by('-created_at')
+        diaries = blog_ohno.objects.filter(user=self.request.user).order_by('-created_at')
         return diaries
 
 
 class Blog_ohnoListView(LoginRequiredMixin, generic.ListView):
-    model = Diary 
+    model = Blog_ohno
     template_name = 'blog_ohno_list.html'
     paginate_by = 2
 
     def get_queryset(self):
-        diaries = Diary.objects.filter(user=self.request.user).order_by('-created_at')
+        diaries = Blog_ohno.objects.filter(user=self.request.user).order_by('-created_at')
         return diaries
 
 
 class Blog_ohnoDetailView(LoginRequiredMixin, generic.DetailView):
-    model = Diary 
+    model = Blog_ohno
     template_name = 'blog_ohno_detail.html'
     pk_url_kwarg = 'pk'
 
 
 
-from .forms import InquiryForm, Blog_ohnoCreateForm
+from .forms import Blog_ohnoCreateForm
 
 class Blog_ohnoCreateView(LoginRequiredMixin, generic.CreateView):
-    model = Diary 
+    model = Blog_ohno
     template_name = 'blog_ohno_create.html'
     form_class = Blog_ohnoCreateForm 
-    success_url = reverse_lazy('diary:diary_list')
+    success_url = reverse_lazy('blog_ohno:blog_ohno_list')
 
     def form_valid(self,form):
-        diary = form.save(commit=False)
-        diary.user = self.request.user 
-        diary.save()
+        blog_ohno = form.save(commit=False)
+        blog_ohno = self.request.user 
+        blog_ohno.save()
         messages.success(self.request,'ブログを作成しました。')
         return super().form_valid(form)
 
@@ -78,7 +79,7 @@ class Blog_ohnoCreateView(LoginRequiredMixin, generic.CreateView):
 
 
 class Blog_ohnoUpdateView(LoginRequiredMixin, generic.UpdateView):
-    model = Diary 
+    model = Blog_ohno
     template_name = 'diary_update.html'
     form_class = Blog_ohnoCreateForm 
 
@@ -95,7 +96,7 @@ class Blog_ohnoUpdateView(LoginRequiredMixin, generic.UpdateView):
 
 
 class Blog_ohnoDeleteView(LoginRequiredMixin,generic.DeleteView):
-    model = Diary 
+    model = Blog_ohno
     template_name = 'blog_ohno_delete.html'
     success_url = reverse_lazy('blog_ohno:blog_ohno_list')
 

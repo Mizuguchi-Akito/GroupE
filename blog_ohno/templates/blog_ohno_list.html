@@ -1,21 +1,12 @@
-{% extends 'blog_ohno/base.html' %}
+{% extends 'dblog_ohno/base.html' %}
 {% load static %}
 
-{% block title %}Django Blog{% endblock %}
+{% block title %}ブログ一覧{% endblock %}
 
-{% block header %}
-        <!-- <header class="masthead text-center text-white"> -->
-        <header class="index_main"></header>
-            <div class="masthead-content">
-                <div class="container px-5">
-                    <h1 class="masthead-heading mb-0">Django Blog</h1>
-                    <h3 class="masthead-subheading mb-0">Pythonフレームワーク『Django』で作成したサイトになっております。
-                    <br>Djangoについて役に立つ情報をお届けします。</h3>
-                    
-                </div>
-            </div>
-        </header>
-{% endblock %}
+{% block active_diary_list %}active{% endblock %}
+
+
+
 
 {% block contents %}
 <!-- Content section 1-->
@@ -29,15 +20,15 @@
                     </div>
                     {% for diary in diary_list %}
                     <div class="post-preview">
-                        <a href="{% url 'blog_ohno:blog_ohno_detail' diary.pk %}">
+                        <a href="{% url 'blog_ohno:blog_ohno_detail' blog_ohno.pk %}">
                             <h2 class="post-title">
-                                {{ diary.title }}
+                                {{ blog_ohno.title }}
                             </h2>
                             <h3 class="post-subtitle">
-                                {{ diary.content|truncatechars:20 }}
+                                {{ blog_ohno.content|truncatechars:20 }}
                             </h3>
                         </a>
-                        <p class="post-meta">{{ diary.created_at }}</p>
+                        <p class="post-meta">{{ blog_ohno.created_at }}</p>
                     </div>
                     <hr>
                     {% empty %}
@@ -84,6 +75,3 @@
 
 
 {% endblock %}
-
-
-        

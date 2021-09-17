@@ -17,14 +17,13 @@ Including another URLconf
 from django.urls import path
 from . import views
 
-app_name = 'diary'
+app_name = 'blog_ohno'
 
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
-    path('inquiry/', views.InquiryView.as_view(), name='inquiry'),
-    path('blog_list/',views.DiaryListView.as_view(),name="blog_list"),
-    path('blog_detail/<int:pk>/', views.DiaryDetailView.as_view(),name="blog_detail"),
-    path('blog_create/',views.DiaryCreateView.as_view(),name="blog_create"),
-    path('blog_update/<int:pk>/',views.DiaryUpdateView.as_view(),name="blog_update"),
-    path('blog_delete/<int:pk>/',views.DiaryDeleteView.as_view(),name="blog_delete"),
+    path('blog_list/',views.Blog_ohnoListView.as_view(),name="blog_ohno_list"),
+    path('blog_detail/<int:pk>/', views.Blog_ohnoDetailView.as_view(),name="blog_ohno_detail"),
+    path('blog_create/',views.Blog_ohnoCreateView.as_view(),name="blog_ohno_create"),
+    path('blog_update/<int:pk>/',views.Blog_ohnoUpdateView.as_view(),name="blog_ohno_update"),
+    path('blog_delete/<int:pk>/',views.Blog_ohnoDeleteView.as_view(),name="blog_ohno_delete"),
 ]
