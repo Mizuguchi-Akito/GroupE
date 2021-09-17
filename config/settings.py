@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'furukawa.apps.FurukawaConfig',
+    'matsumaru.apps.MatsumaruConfig'
 ]
 
 MIDDLEWARE = [
