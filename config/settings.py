@@ -44,6 +44,8 @@ INSTALLED_APPS = [
 
     'Mizuguchi.apps.MizuguchiConfig',
     'Kamimura.apps.KamimuraConfig',
+
+    'blog_kamimura.apps.BlogKamimuraConfig',
     ]
 
 MIDDLEWARE = [
