@@ -24,5 +24,6 @@ urlpatterns = [
     path('furukawa/',include('furukawa.urls')),
     path('mizuguchi', include('Mizuguchi.urls')),
     path('kamimura', include('Kamimura.urls')),
+    path('accounts/', include('allauth.urls'))
 
 ]
