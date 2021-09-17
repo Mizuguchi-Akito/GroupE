@@ -25,5 +25,7 @@ urlpatterns = [
     path('mizuguchi', include('Mizuguchi.urls')),
     path('kamimura', include('Kamimura.urls')),
     path('blog_ohno',include('blog_ohno.urls')),
+    path('accounts/', include('allauth.urls')),
+
 
 ]
