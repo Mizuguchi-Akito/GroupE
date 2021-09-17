@@ -1,0 +1,32 @@
+{% extends 'diary/base.html' %}
+{% load static %}
+
+{% block title %}ブログ作成{% endblock %}
+
+{% block active_diary_list %}active{% endblock %}
+
+
+        {% block contents %}
+        <!-- Content section 1-->
+        <section id="scroll">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="my-div-style">
+                    <form method="post" enctype='multipart/form-data'>
+                        {% csrf_token %}
+
+                        <table class="table">
+                            {{ form.as_table }}
+                        </table>
+
+                        
+                        
+                            <button class="btn btn-primary" type="submit">作成</button>
+                        
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        {% endblock %}

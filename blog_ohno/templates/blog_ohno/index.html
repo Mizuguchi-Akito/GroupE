@@ -1,0 +1,91 @@
+{% extends 'blog_ohno/base.html' %}
+{% load static %}
+
+{% block title %}Blog{% endblock %}
+
+{% block header %}
+        <header class="masthead text-center text-white">
+            <div class="masthead-content">
+                <div class="container px-5">
+                    <h1 class="masthead-heading mb-0">One Page Wonder</h1>
+                    <h2 class="masthead-subheading mb-0">Will Rock Your Socks Off</h2>
+                    <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#scroll">Learn More</a>
+                </div>
+            </div>
+            <div class="bg-circle-1 bg-circle"></div>
+            <div class="bg-circle-2 bg-circle"></div>
+            <div class="bg-circle-3 bg-circle"></div>
+            <div class="bg-circle-4 bg-circle"></div>
+        </header>
+{% endblock %}
+
+{% block contents %}
+<!-- Content section 1-->
+
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+            <div class="my-div-style w-100">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="clearfix">
+                        <a class="btn btn-primary float-right" href="{% url 'blog_ohno:blog_ohno_create' %}">新規作成</a>
+                    </div>
+                    {% for diary in diary_list %}
+                    <div class="post-preview">
+                        <a href="{% url 'blog_ohno:blog_ohno_detail' diary.pk %}">
+                            <h2 class="post-title">
+                                {{ diary.title }}
+                            </h2>
+                            <h3 class="post-subtitle">
+                                {{ diary.content|truncatechars:20 }}
+                            </h3>
+                        </a>
+                        <p class="post-meta">{{ diary.created_at }}</p>
+                    </div>
+                    <hr>
+                    {% empty %}
+                    <p>ブログがありません。</p>
+                    {% endfor %}
+
+                    <!-- ページネーション処理-->
+
+                    {% if is_paginated %}
+                    <ul class="pagination">
+                        {% if page_obj.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_obj.previous_page_number }}">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                    {% endif %}
+
+                    {% for page_num in page_obj.paginator.page_range %}
+                    {% if page_obj.number == page_num %}
+                    <li class="page-item active">
+                        <a class="page-link" href="#">{{ page_num }}</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a class="page-item" href="?page={{ page_num }}">{{ page_num }}</a>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+
+                    {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}">
+                            <span aria-hidden="true">&raquo</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+
+        

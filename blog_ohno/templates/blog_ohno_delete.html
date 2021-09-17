@@ -1,0 +1,32 @@
+{% extends 'diary/base.html' %}
+{% load static %}
+
+{% block title %}ブログ削除{% endblock %}
+
+{% block active_diary_list %}active{% endblock %}
+
+
+        {% block contents %}
+        <!-- Content section 1-->
+        <section id="scroll">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="my-div-style">
+                    <form method="post" enctype='multipart/form-data'>
+                        {% csrf_token %}
+
+                        <p>本当に削除しますか。</p>
+
+                        
+                        
+                            <button class="btn btn-primary mt-5" type="submit">削除</button>
+
+                            <a class="btn btn-secondary mt-5 ml-2" href="{% url 'blog_ohno:blog_ohno_detail' object.pk %}">キャンセル</a>
+                        
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        {% endblock %}
