@@ -41,7 +41,10 @@ INSTALLED_APPS = [
     'ohno.apps.OhnoConfig'
     'furukawa.apps.FurukawaConfig',
     'matsumaru.apps.MatsumaruConfig'
-]
+
+    'Mizuguchi.apps.MizuguchiConfig',
+    'Kamimura.apps.KamimuraConfig',
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
