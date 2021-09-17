@@ -22,7 +22,7 @@ urlpatterns = [
     path('ohno/',include('ohno.urls')),
     path('matsumaru/',include('matsumaru.urls')),
     path('furukawa/',include('furukawa.urls')),
-    path('mizuguchi', include('Mizuguchi.urls')),
-    path('kamimura', include('Kamimura.urls')),
+    path('mizuguchi/', include('Mizuguchi.urls')),
+    path('kamimura/', include('Kamimura.urls')),
 
 ]
