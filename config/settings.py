@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'allauth',
     'allauth.account',
+    'blog_matsumaru.apps.BlogMatsumaruConfig',
     ]
 
 MIDDLEWARE = [
@@ -158,3 +159,8 @@ ACCOUNT_EMAIL_SUBJECT_PREFIX = ''
 
 # デフォルトのメール送信元を設定
 DEFAULT_FROM_EMAIL = 'admin@example.com'
+
+#staticフォルダのディレクトリを設定
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
