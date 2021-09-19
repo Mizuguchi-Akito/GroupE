@@ -37,13 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'ohno.apps.OhnoConfig',
     'furukawa.apps.FurukawaConfig',
     'matsumaru.apps.MatsumaruConfig',
     'Mizuguchi.apps.MizuguchiConfig',
     'Kamimura.apps.KamimuraConfig',
-
     'blog_kamimura.apps.BlogKamimuraConfig',
+
     'accounts.apps.AccountsConfig',
     'django.contrib.sites',
     'allauth',
@@ -160,3 +161,10 @@ ACCOUNT_EMAIL_SUBJECT_PREFIX = ''
 
 # デフォルトのメール送信元を設定
 DEFAULT_FROM_EMAIL = 'admin@example.com'
+
+#静的ファイルの場所設定
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
