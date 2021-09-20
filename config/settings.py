@@ -38,10 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'ohno.apps.OhnoConfig'
+    'ohno.apps.OhnoConfig',
     'furukawa.apps.FurukawaConfig',
-    'matsumaru.apps.MatsumaruConfig'
-
+    'matsumaru.apps.MatsumaruConfig',
     'Mizuguchi.apps.MizuguchiConfig',
     'Kamimura.apps.KamimuraConfig',
     ]
