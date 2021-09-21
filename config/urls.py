@@ -1,13 +1,6 @@
 from django.contrib import admin
-<<<<<<< HEAD
 from django.urls import path,include
 
-=======
-from django.contrib.staticfiles.urls import static
-from django.urls import path,include
-
-from .import settings
->>>>>>> main
 
 urlpatterns = [
     path('admin/', admin.site.urls),
