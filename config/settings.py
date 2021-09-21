@@ -10,7 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
+from logging import WARNING
 import os
+from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -37,12 +39,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'ohno.apps.OhnoConfig',
     'blog_ohno.apps.BlogOhnoConfig',
     'furukawa.apps.FurukawaConfig',
     'matsumaru.apps.MatsumaruConfig',
     'Mizuguchi.apps.MizuguchiConfig',
     'Kamimura.apps.KamimuraConfig',
+    'blog_kamimura.apps.BlogKamimuraConfig',
+
     'accounts.apps.AccountsConfig',
     'django.contrib.sites',
     'allauth',
@@ -164,3 +169,24 @@ ACCOUNT_EMAIL_SUBJECT_PREFIX = ''
 # デフォルトのメール送信元を設定
 DEFAULT_FROM_EMAIL = 'admin@example.com'
 
+
+#静的ファイルの場所設定
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+#バックエンド処理
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+MESSEGE_TAGS = {
+    messages.ERROR: 'alert alert-danger',
+    messages.WARNING: 'alert alert-warning',
+    messages.SUCCESS: 'alert alert-success',
+    messages.INFO: 'alert alert-info',
+}
+
+#メディアファイル(画像)
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_URL = '/media/'
