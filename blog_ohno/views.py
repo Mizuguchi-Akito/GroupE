@@ -37,8 +37,8 @@ class Blog_ohnoListView(LoginRequiredMixin, generic.ListView):
     template_name = 'blog_ohno_list.html'
 
     def get_queryset(self):
-        diaries = blog_ohno.objects.filter(user=self.request.user).order_by('-created_at')
-        return diaries
+        blog_ohnos = blog_ohno.objects.filter(user=self.request.user).order_by('-created_at')
+        return blog_ohnos
 
 
 class Blog_ohnoListView(LoginRequiredMixin, generic.ListView):
@@ -47,8 +47,8 @@ class Blog_ohnoListView(LoginRequiredMixin, generic.ListView):
     paginate_by = 2
 
     def get_queryset(self):
-        diaries = Blog_ohno.objects.filter(user=self.request.user).order_by('-created_at')
-        return diaries
+        blog_ohnos = Blog_ohno.objects.filter(user=self.request.user).order_by('-created_at')
+        return blog_ohnos
 
 
 class Blog_ohnoDetailView(LoginRequiredMixin, generic.DetailView):
@@ -80,7 +80,7 @@ class Blog_ohnoCreateView(LoginRequiredMixin, generic.CreateView):
 
 class Blog_ohnoUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Blog_ohno
-    template_name = 'diary_update.html'
+    template_name = 'blog_ohno_update.html'
     form_class = Blog_ohnoCreateForm 
 
     def get_success_url(self):

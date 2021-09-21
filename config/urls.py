@@ -26,12 +26,10 @@ urlpatterns = [
     path('furukawa/',include('furukawa.urls')),
     path('mizuguchi/', include('Mizuguchi.urls')),
     path('kamimura/', include('Kamimura.urls')),
-
     path('blog_kamimura/',include('blog_kamimura.urls')),
     path('mizuguchi', include('Mizuguchi.urls')),
     path('kamimura', include('Kamimura.urls')),
     path('blog_ohno',include('blog_ohno.urls')),
-    path('accounts/', include('allauth.urls'))
     path('accounts/', include('allauth.urls')),
 
 

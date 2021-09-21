@@ -3,7 +3,7 @@
 
 {% block title %}ブログ一覧{% endblock %}
 
-{% block active_diary_list %}active{% endblock %}
+{% block active_blog_ohno_list %}active{% endblock %}
 
 
 
@@ -18,7 +18,7 @@
                     <div class="clearfix">
                         <a class="btn btn-primary float-right" href="{% url 'blog_ohno:blog_ohno_create' %}">新規作成</a>
                     </div>
-                    {% for diary in diary_list %}
+                    {% for blog_ohno in blog_ohno_list %}
                     <div class="post-preview">
                         <a href="{% url 'blog_ohno:blog_ohno_detail' blog_ohno.pk %}">
                             <h2 class="post-title">

@@ -4,17 +4,19 @@
 {% block title %}Django Blog{% endblock %}
 
 {% block header %}
-        <!-- <header class="masthead text-center text-white"> -->
-        <header class="index_main"></header>
-            <div class="masthead-content">
-                <div class="container px-5">
-                    <h1 class="masthead-heading mb-0">Django Blog</h1>
-                    <h3 class="masthead-subheading mb-0">Pythonフレームワーク『Django』で作成したサイトになっております。
-                    <br>Djangoについて役に立つ情報をお届けします。</h3>
-                    
+<header class="masthead" style="background-image: url('assets/img/home-bg.jpg')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1>Django Blog</h1>
+                    <span class="subheading">Pythonフレームワーク『Django』で作成したブログ。<br>
+                    Djangoについて役に立つ情報をお届けします。</span>
                 </div>
             </div>
-        </header>
+        </div>
+    </div>
+</header>    
 {% endblock %}
 
 {% block contents %}
@@ -27,17 +29,17 @@
                     <div class="clearfix">
                         <a class="btn btn-primary float-right" href="{% url 'blog_ohno:blog_ohno_create' %}">新規作成</a>
                     </div>
-                    {% for diary in diary_list %}
+                    {% for blog_ohno in blog_ohno_list %}
                     <div class="post-preview">
-                        <a href="{% url 'blog_ohno:blog_ohno_detail' diary.pk %}">
+                        <a href="{% url 'blog_ohno:blog_ohno_detail' blog_ohno.pk %}">
                             <h2 class="post-title">
-                                {{ diary.title }}
+                                {{ blog_ohno.title }}
                             </h2>
                             <h3 class="post-subtitle">
-                                {{ diary.content|truncatechars:20 }}
+                                {{ blog_ohno.content|truncatechars:20 }}
                             </h3>
                         </a>
-                        <p class="post-meta">{{ diary.created_at }}</p>
+                        <p class="post-meta">{{ blog_ohno.created_at }}</p>
                     </div>
                     <hr>
                     {% empty %}
