@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @charset "UTF-8";
 /*!
 * Start Bootstrap - One Page Wonder v6.0.3 (https://startbootstrap.com/theme/one-page-wonder)
@@ -11381,3 +11382,18 @@ footer {
 .my-div-style {
   margin-top: 6rem;
 }
+=======
+/* body, #wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+} */
+
+footer{
+    margin-top: auto;
+}
+
+.my-div-style{
+    margin-top: 6rem;
+}
+>>>>>>> main
