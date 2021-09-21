@@ -184,3 +184,6 @@ MESSEGE_TAGS = {
 #メディアファイル(画像)
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL = '/media/'
+
+#ログイン直後のリダイレクト先の設定
+LOGIN_REDIRECT_URL = 'blog_kamimura:blog-list'
