@@ -1,4 +1,12 @@
 /*!
+<<<<<<< HEAD
+* Start Bootstrap - One Page Wonder v6.0.3 (https://startbootstrap.com/theme/one-page-wonder)
+* Copyright 2013-2021 Start Bootstrap
+* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-one-page-wonder/blob/master/LICENSE)
+*/
+// This file is intentionally blank
+// Use this file to add JavaScript to your project
+=======
 * Start Bootstrap - Clean Blog v6.0.5 (https://startbootstrap.com/theme/clean-blog)
 * Copyright 2013-2021 Start Bootstrap
 * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-clean-blog/blob/master/LICENSE)
@@ -27,3 +35,4 @@ window.addEventListener('DOMContentLoaded', () => {
         scrollPos = currentTop;
     });
 })
+>>>>>>> main
