@@ -6,27 +6,28 @@
 {% block active_blog_ohno_list %}active{% endblock %}
 
 
-        {% block contents %}
-        <!-- Content section 1-->
-        <section id="scroll">
-            <div class="container px-5">
-                <div class="row gx-5 align-items-center">
-                    <div class="my-div-style">
-                    <form method="post" enctype='multipart/form-data'>
-                        {% csrf_token %}
 
-                        <table class="table">
-                            {{ form.as_table }}
-                        </table>
+{% block contents %}
+<!-- Content section 1-->
+<section id="scroll">
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+            <div class="my-div-style">
+            <form method="post" enctype='multipart/form-data'>
+                {% csrf_token %}
 
-                        
-                        
-                            <button class="btn btn-primary" type="submit">作成</button>
-                        
-                    </form>
-                    </div>
-                </div>
+                <table class="table">
+                    {{ form.as_table }}
+                </table>
+
+                
+                
+                    <button class="btn btn-primary" type="submit">作成</button>
+                
+            </form>
             </div>
-        </section>
-        
-        {% endblock %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -68,7 +68,7 @@ class Blog_ohnoCreateView(LoginRequiredMixin, generic.CreateView):
 
     def form_valid(self,form):
         blog_ohno = form.save(commit=False)
-        blog_ohno = self.request.user 
+        blog_ohno.user = self.request.user 
         blog_ohno.save()
         messages.success(self.request,'ブログを作成しました。')
         return super().form_valid(form)

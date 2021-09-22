@@ -21,7 +21,7 @@ app_name = 'blog_ohno'
 
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
-    path('blog_list/',views.Blog_ohnoListView.as_view(),name="blog_ohno_list"),
+    path('blog_ohno_list/',views.Blog_ohnoListView.as_view(),name="blog_ohno_list"),
     path('blog_detail/<int:pk>/', views.Blog_ohnoDetailView.as_view(),name="blog_ohno_detail"),
     path('blog_create/',views.Blog_ohnoCreateView.as_view(),name="blog_ohno_create"),
     path('blog_update/<int:pk>/',views.Blog_ohnoUpdateView.as_view(),name="blog_ohno_update"),
