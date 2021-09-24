@@ -1,2 +1,91 @@
 Django==2.2.2
 django-allauth==0.45.0
+
+
+
+{% block header %}
+<header class="masthead" style="background-image: url('assets/img/home-bg.jpg')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1>Django Blog</h1>
+                    <span class="subheading">Pythonフレームワーク『Django』で作成したブログ。<br>
+                    Djangoについて役に立つ情報をお届けします。</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>    
+{% endblock %}
+
+{% block contents %}
+<!-- Content section 1-->
+
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+            <div class="my-div-style w-100">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <!-- <div class="clearfix">
+                        <a class="btn btn-primary float-right" href="{% url 'blog_ohno:blog_ohno_create' %}">新規作成</a>
+                    </div> -->
+                    {% for blog_ohno in blog_ohno_list %}
+                    <div class="post-preview">
+                        <a href="{% url 'blog_ohno:blog_ohno_detail' blog_ohno.pk %}">
+                            <h2 class="post-title">
+                                {{ blog_ohno.title }}
+                            </h2>
+                            <h3 class="post-subtitle">
+                                {{ blog_ohno.content|truncatechars:20 }}
+                            </h3>
+                        </a>
+                        <p class="post-meta">{{ blog_ohno.created_at }}</p>
+                    </div>
+                    <hr>
+                    {% empty %}
+                    <p>ブログがありません。</p>
+                    {% endfor %}
+
+                    <!-- ページネーション処理-->
+
+                    {% if is_paginated %}
+                    <ul class="pagination">
+                        {% if page_obj.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_obj.previous_page_number }}">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                    {% endif %}
+
+                    {% for page_num in page_obj.paginator.page_range %}
+                    {% if page_obj.number == page_num %}
+                    <li class="page-item active">
+                        <a class="page-link" href="#">{{ page_num }}</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a class="page-item" href="?page={{ page_num }}">{{ page_num }}</a>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+
+                    {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}">
+                            <span aria-hidden="true">&raquo</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+
+        

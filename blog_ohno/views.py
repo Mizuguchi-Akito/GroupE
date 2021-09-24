@@ -16,6 +16,15 @@ def index(request):
 class IndexView(generic.TemplateView):
     template_name = "blog_ohno/index.html"
 
+class IndexView(generic.ListView):
+    model = Blog_ohno
+    template_name = 'blog_ohno/index.html'
+    paginate_by = 2
+
+    # def get_queryset(self):
+    #     blog_ohnos = blog_ohno.objects.filter(user=self.request.user).order_by('-created_at')
+    #     return blog_ohnos
+
 # class InquiryView(generic.FormView):
 #     template_name = "blog_ohno/inquiry.html"
 #     form_class = InquiryForm
@@ -54,6 +63,11 @@ class Blog_ohnoListView(LoginRequiredMixin, generic.ListView):
 class Blog_ohnoDetailView(LoginRequiredMixin, generic.DetailView):
     model = Blog_ohno
     template_name = 'blog_ohno_detail.html'
+    pk_url_kwarg = 'pk'
+
+class Blog_ohnoDetailView2(generic.DetailView):
+    model = Blog_ohno
+    template_name = 'blog_ohno_detail_index.html'
     pk_url_kwarg = 'pk'
 
 

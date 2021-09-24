@@ -31,7 +31,7 @@
                     </div> -->
                     {% for blog_ohno in blog_ohno_list %}
                     <div class="post-preview">
-                        <a href="{% url 'blog_ohno:blog_ohno_detail' blog_ohno.pk %}">
+                        <a href="{% url 'blog_ohno:blog_ohno_detail_index' blog_ohno.pk %}">
                             <h2 class="post-title">
                                 {{ blog_ohno.title }}
                             </h2>

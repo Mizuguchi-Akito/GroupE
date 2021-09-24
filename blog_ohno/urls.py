@@ -21,8 +21,10 @@ app_name = 'blog_ohno'
 
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
+    # path('', views.IndexView2.as_view(), name='index'),
     path('blog_ohno_list/',views.Blog_ohnoListView.as_view(),name="blog_ohno_list"),
     path('blog_detail/<int:pk>/', views.Blog_ohnoDetailView.as_view(),name="blog_ohno_detail"),
+    path('blog_detail_index/<int:pk>/', views.Blog_ohnoDetailView2.as_view(),name="blog_ohno_detail_index"),
     path('blog_create/',views.Blog_ohnoCreateView.as_view(),name="blog_ohno_create"),
     path('blog_update/<int:pk>/',views.Blog_ohnoUpdateView.as_view(),name="blog_ohno_update"),
     path('blog_delete/<int:pk>/',views.Blog_ohnoDeleteView.as_view(),name="blog_ohno_delete"),
