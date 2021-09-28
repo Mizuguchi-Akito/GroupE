@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.contrib.staticfiles.urls import static
-from django.urls import path,include
+from django.urls import path, include
 
 from .import settings
 
@@ -27,12 +27,10 @@ urlpatterns = [
     path('furukawa/', include('furukawa.urls')),
     path('kamimura/', include('Kamimura.urls')),
 
-    path('blog_furukawa/',include('blog_furukawa.urls')),
+    path('',include('blog_furukawa.urls')),
     path('accounts/', include('allauth.urls')),
-
 ]
 
 
 #開発サーバーでメディアを配信できるようにする設定
-urlpatterns += static(settings.MEDIA_URL,
-document_root = settings.MEDIA_ROOT)
+urlpatterns += static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)
