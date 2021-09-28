@@ -1,4 +1,4 @@
-{% extends 'blog_kamimura/base.html' %}
+{% extends 'blog_matsumaru/base.html' %}
 {% load static %}
 
 {% block title %}ブログ編集{% endblock %}
@@ -15,7 +15,7 @@
                     {{ form.as_table }}
                 </table>
                 <button class="btn btn-primary" type="submit">更新</button>
-                <a class="btn btn-secondary ml-2" href="{% url 'blog_kamimura:blog_detail' object.pk %}">キャンセル</a>
+                <a class="btn btn-secondary ml-2" href="{% url 'blog_matsumaru:blog_detail' object.pk %}">キャンセル</a>
             </form>
         </div>
     </div>

@@ -26,19 +26,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    'ohno.apps.OhnoConfig',
-    'furukawa.apps.FurukawaConfig',
-    'matsumaru.apps.MatsumaruConfig',
-    'Mizuguchi.apps.MizuguchiConfig',
-    'Kamimura.apps.KamimuraConfig',
-    'blog_kamimura.apps.BlogKamimuraConfig',
-
     'accounts.apps.AccountsConfig',
     'django.contrib.sites',
     'allauth',
     'allauth.account',
-    'blog_matsumaru.apps.BlogMatsumaruConfig',
+    'blog_matsumaru.apps.BlogmatsumaruConfig',
     ]
 
 MIDDLEWARE = [
@@ -140,8 +132,9 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_EMAIL_REQUIRED = True
 
 # ログイン/ログアウト後の遷移先を設定
-LOGIN_REDIRECT_URL = 'blog_kamimura:index'
+LOGIN_REDIRECT_URL = 'blog_matsumaru:index'
 ACCOUNT_LOGOUT_REDIRECT_URL = 'account_login'
+
 
 # ログアウトリンクのクリック一発でログアウトする設定
 ACCOUNT_LOGOUT_ON_GET = True
@@ -175,4 +168,4 @@ MEDIA_URL = '/media/'
 
 
 #ログイン直後のリダイレクト先の設定
-LOGIN_REDIRECT_URL = 'blog_kamimura:blog_list'
+LOGIN_REDIRECT_URL = 'blog_matsumaru:blog_list'
