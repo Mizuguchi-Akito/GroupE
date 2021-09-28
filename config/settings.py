@@ -31,14 +31,13 @@ INSTALLED_APPS = [
     'furukawa.apps.FurukawaConfig',
     'matsumaru.apps.MatsumaruConfig',
     'Mizuguchi.apps.MizuguchiConfig',
-    'Kamimura.apps.KamimuraConfig',
-    'blog_kamimura.apps.BlogKamimuraConfig',
 
     'accounts.apps.AccountsConfig',
     'django.contrib.sites',
     'allauth',
     'allauth.account',
     'blog_matsumaru.apps.BlogMatsumaruConfig',
+    'blog_mizuguchi.apps.BlogMizuguchiConfig',
     ]
 
 MIDDLEWARE = [
@@ -140,8 +139,9 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_EMAIL_REQUIRED = True
 
 # ログイン/ログアウト後の遷移先を設定
-LOGIN_REDIRECT_URL = 'diary:index'
+LOGIN_REDIRECT_URL = 'blog_mizuguchi:index'
 ACCOUNT_LOGOUT_REDIRECT_URL = 'account_login'
+
 
 # ログアウトリンクのクリック一発でログアウトする設定
 ACCOUNT_LOGOUT_ON_GET = True
@@ -172,3 +172,7 @@ MESSEGE_TAGS = {
 #メディアファイル(画像)
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL = '/media/'
+
+
+#ログイン直後のリダイレクト先の設定
+LOGIN_REDIRECT_URL = 'blog_mizuguchi:blog_list'

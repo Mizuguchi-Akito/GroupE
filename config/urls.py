@@ -8,12 +8,7 @@ urlpatterns = [
     path('ohno/',include('ohno.urls')),
     path('matsumaru/',include('blog_matsumaru.urls')),
     path('furukawa/',include('furukawa.urls')),
-    path('mizuguchi/', include('Mizuguchi.urls')),
-    path('kamimura/', include('Kamimura.urls')),
-
-    path('blog_kamimura/',include('blog_kamimura.urls')),
-    path('mizuguchi', include('Mizuguchi.urls')),
-    path('kamimura', include('Kamimura.urls')),
+    path('blog_mizuguchi/',include('blog_mizuguchi.urls')),
     path('accounts/', include('allauth.urls')),
 
 ]
