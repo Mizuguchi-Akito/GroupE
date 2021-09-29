@@ -44,9 +44,9 @@ class BlogCreateView(LoginRequiredMixin,generic.CreateView):
     success_url = reverse_lazy('blog_furukawa:blog_list')
 
     def form_valid(self,form):
-        blog_furukawa = form.save(commit=False)
-        blog_furukawa.user = self.request.user
-        blog_furukawa.save()
+        blog = form.save(commit=False)
+        blog.user = self.request.user
+        blog.save()
         messages.success(self.request,'ブログを作成しました。')
         return super().form_valid(form)
 
