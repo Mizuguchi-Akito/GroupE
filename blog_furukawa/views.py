@@ -25,7 +25,7 @@ class ContactView(generic.FormView):
 
 class BlogListView(LoginRequiredMixin,generic.ListView):
     model = Blog
-    template_name = 'blog_list.html'
+    template_name = 'blog_furukawa/blog_list.html'
     paginate_by = 2
 
     def get_queryset(self):
@@ -34,11 +34,11 @@ class BlogListView(LoginRequiredMixin,generic.ListView):
 
 class BlogDetailView(LoginRequiredMixin,generic.DetailView):
     model = Blog
-    template_name = 'blog_detail.html'
+    template_name = 'blog_furukawa/blog_detail.html'
 
 class BlogCreateView(LoginRequiredMixin,generic.CreateView):
     model = Blog
-    template_name = 'blog_create.html'
+    template_name = 'blog_furukawa/blog_create.html'
     form_class = BlogCreateForm
     success_url = reverse_lazy('blog_furukawa:blog_list')
 
@@ -55,7 +55,7 @@ class BlogCreateView(LoginRequiredMixin,generic.CreateView):
 
 class BlogUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Blog
-    template_name = 'blog_update.html'
+    template_name = 'blog_furukawa/blog_update.html'
     form_class = BlogCreateForm
 
     def get_success_url(self):
@@ -71,7 +71,7 @@ class BlogUpdateView(LoginRequiredMixin, generic.UpdateView):
 
 class BlogDeleteView(LoginRequiredMixin,generic.DeleteView):
     model = Blog
-    template_name = 'blog_delete.html'
+    template_name = 'blog_furukawa/blog_delete.html'
     success_url = reverse_lazy('blog_furukawa:blog_list')
 
     def delete(self, request, *args, **kwargs):
