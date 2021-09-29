@@ -33,7 +33,7 @@ class ContactView(generic.FormView):
 class BlogListView(LoginRequiredMixin, generic.ListView):
     model = Blog
     template_name = 'blog_matsumaru/blog_list.html'
-    paginate_by = 2
+    paginate_by = 3
 
     def get_queryset(self):
         diaries = Blog.objects.filter(user=self.request.user).order_by('-created_at')
