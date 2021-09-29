@@ -2,6 +2,7 @@ import logging
 from django.urls import reverse_lazy
 from django.views import generic
 from .models import Blog
+from .forms import ContactForm
 from .forms import ContactForm, BlogCreateForm
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin

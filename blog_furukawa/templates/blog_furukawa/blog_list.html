@@ -6,7 +6,7 @@
 {% block active_blog_list %}active{% endblock %}
 
 {% block head %}
-<link href="{% static 'css/blog.css '%}" rel="stylesheet" >
+<link href="{% static 'css/style.css '%}" rel="stylesheet" >
 {% endblock %}
 
 {% block contents %}
@@ -17,9 +17,9 @@
                     <div class="clearfix">
                         <a class="btn btn-primary float-right" href="{% url 'blog_furukawa:blog_create' %}">新規作成</a>
                     </div>
-                    {% for blog_furukawa in blog_list %}
+                    {% for blog in blog_list %}
                     <div class="post-preview">
-                        <a href="{% url 'blog_furukawa:blog_detail' blog_furukawa.pk %}">
+                        <a href="{% url 'blog_furukawa:blog_detail' blog.pk %}">
                             <h2 class="post-title">
                                 {{ blog.title }}
                             </h2>
